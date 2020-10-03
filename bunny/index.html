@@ -139,7 +139,7 @@ container {
      
       <div id="porcentaje_contenedor"><div id="barra"></div>  <div id="porcentaje"></div></div>
       <div id="terminado" style="display: none;">
-        <button onclick=" document.getElementById('precargador').style.display = 'none';document.getElementById('principal').style.display = 'flex';"> iniciar </button>
+        <button onclick=" document.getElementById('precargador').style.display = 'none';document.getElementById('fin_precarga').style.display = 'inherit';"> iniciar </button>
       </div>
   </div>
   
@@ -147,7 +147,8 @@ container {
 
     
   </div>
-  <div  id="principal" style="display: none;">
+  <div id="fin_precarga" style="display: none;" >
+  <div  id="principal" >
     <container> 
       <div id="cola" class="dress_up_part"></div>
       <div id="base" class="dress_up_part"></div>
@@ -205,6 +206,8 @@ container {
    
 
   </div>
+
+</div>
   <script>
      var imagenes_a_cargar = [
      "base.png", 
