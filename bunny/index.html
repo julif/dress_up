@@ -2,12 +2,83 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script><!-- --- Jquery --- -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    
     <style>
       body{
        margin: 0px auto;
        font-family: "proxima-nova",sans-serif;
       }
+
+
+
+
+
+
+      #preloader {
+    margin-left: 15000px;
+    position: fixed;
+    color: white;
+}
+
+
+      #preloader img{
+        height: 50px;
+        width: auto;
+      }
+
+
+
+
+      #precargador {
+    background-color: #0b0a10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    height: 100%;
+    /* width: 100vw; */
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+#precargador h1{
+  color: white;
+}
+#precargador button{    margin-top: 25px;}
+#porcentaje_contenedor {
+    background-color: black;
+    color: white;
+    height: 20px;
+    display: flex;
+    position: relative;
+}
+#porcentaje_contenedor #barra {
+    background-color: white;
+    display: block;
+    width: 0%;
+    height: 100%;
+}
+#porcentaje_contenedor #porcentaje {
+    color: #f7f7f7;
+    top: 2px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: "proxima-nova",sans-serif;
+    mix-blend-mode: difference;
+}
+
+
+
+
+
+
+
+
+
       #principal{
         display: flex;
     width: 100%;
@@ -59,7 +130,24 @@ container {
     </style>
   </head>
 <body >
-  <div  id="principal">
+  <div id="preloader"> preloader </div>
+  <div id="precargador"> 
+
+
+    <div style=" text-align: center;">
+      <h1>Bunny dress_up</h1>
+     
+      <div id="porcentaje_contenedor"><div id="barra"></div>  <div id="porcentaje"></div></div>
+      <div id="terminado" style="display: none;">
+        <button onclick=" document.getElementById('precargador').style.display = 'none';document.getElementById('principal').style.display = 'flex';"> iniciar </button>
+      </div>
+  </div>
+  
+   
+
+    
+  </div>
+  <div  id="principal" style="display: none;">
     <container> 
       <div id="cola" class="dress_up_part"></div>
       <div id="base" class="dress_up_part"></div>
@@ -70,7 +158,7 @@ container {
       <div id="orejas" class="dress_up_part"></div>
       <div id="adorno" class="dress_up_part"></div>
       <div id="mascara" class="dress_up_part"></div>
-      <div style=" position: absolute;bottom: 10px;right: 10px;font-family: monospace;font-size: 14px;"> v 0.1.1 </div>
+      <div style=" position: absolute;bottom: 10px;right: 10px;font-family: monospace;font-size: 14px;"> v 0.2 </div>
     </container>
     <div>
 
@@ -117,6 +205,86 @@ container {
    
 
   </div>
+  <script>
+     var imagenes_a_cargar = [
+     "base.png", 
+     "brazo_der.png", 
+     "brazo.png", 
+     "brazo_2.png", 
+     "cola.png", 
+     "pantalones.png", 
+     "vestido.png", 
+     "vestido_2.png",
+     "brazo.png",
+     "brazo_2.png",
+     "orejas.png",
+     "mascara_1.png", 
+     "mascara_2.png", 
+     "mascara_3.png", 
+     "adorno.png"
+  ];
+
+
+
+  precarga( imagenes_a_cargar );
+
+
+  porcentaje =  "0%" ;
+  document.getElementById("porcentaje").innerHTML = porcentaje;
+  document.getElementById("barra").style.width = porcentaje;
+
+  var imagenes_cargadas = 0;
+  var numero_total;
+
+  function precarga( item ){ 
+    // ------------- limpiar los datos para re-utilizacion -----------------
+    porcentaje = "0%";
+    document.getElementById("preloader").innerHTML = " ";
+    imagenes_cargadas = 0;
+    numero_total =  item.length;
+  
+
+    item.forEach(mostrar_imagenes_en_preloader);
+    
+    function mostrar_imagenes_en_preloader(item, index){
+      document.getElementById("preloader").innerHTML +=    '<img  id="preloaded_element_'+ index +'" src="img/'+ item +'" >' ;
+      }
+
+    var imagenes_en_preloader = $('#preloader').children('img').map(function(){
+    return $(this).attr('id');
+  }).get()
+  imagenes_en_preloader.forEach(precargar_imagenes);
+
+
+  
+  function precargar_imagenes(item, index){
+    item ="#"+ item;
+    $(item).on('load', function() {
+      imagenes_cargadas++;
+      console.log(   "cargada imagen: "+ imagenes_cargadas +" de "+ numero_total );
+      // ------------- calcular y mostrar el porcentaje -----------------
+      porcentaje = imagenes_cargadas* 100/  numero_total;   // saco el porcentaje de las imagenes cargadas
+      porcentaje = porcentaje.toFixed() //convertir en numero entero
+      porcentaje =  porcentaje + "%" ;
+      document.getElementById("porcentaje").innerHTML = porcentaje;
+      document.getElementById("barra").style.width = porcentaje;
+      // ------------- terminado -----------------
+      if( imagenes_cargadas == numero_total){
+      console.log(" ");
+      console.log("//carga completada//"); 
+      console.log(" ");
+      document.getElementById("terminado").style.display = "inherit";
+    }
+  })// load function
+}//precargar_imagenes
+
+
+
+
+   }
+
+
+  </script>
 
 <script>
   document.getElementById("base").style.backgroundImage ="url('img/base.png')";
