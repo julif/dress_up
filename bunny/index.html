@@ -425,9 +425,8 @@ var mascara_url = document.getElementById("mascara").style.backgroundImage.slice
 
 
    var adorno_url = document.getElementById("adorno").style.backgroundImage.slice(4, -1).replace(/"/g, "");
+   if ( adorno_url == 'img/adorno_hood.png' ) {  document.getElementById("adorno").style.backgroundImage ="url('img/adorno.png')";}
 
-
-if ( adorno_url == 'img/adorno_hood.png' && capa_active == true ) {  document.getElementById("adorno").style.backgroundImage ="url('img/adorno.png')";}
 
    var mascara_url = document.getElementById("mascara").style.backgroundImage.slice(4, -1).replace(/"/g, "");
 
