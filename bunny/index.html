@@ -9,6 +9,8 @@
       body{
        margin: 0px auto;
        font-family: "proxima-nova",sans-serif;
+       background-color: #222032;
+
       }
 
 
@@ -97,7 +99,16 @@
     width: 45%;
     position: relative;
     }
-    @media (max-width: 990px){  container{width: 65%;}   }
+    @media (max-width: 990px){  
+      container{width: 65%;}  
+
+      .UI_section img{
+      height: 50px;
+
+    }
+      
+      
+       }
     @media screen and (orientation:portrait) {
       #principal {
     display: block!important;
@@ -127,6 +138,21 @@ container {
       margin: 2px;
       cursor: pointer;
     }
+
+
+
+
+
+
+
+    .UI_section{
+      display: none;
+
+    }
+    .UI_section img{
+      height: 100px;
+
+    }
     </style>
   </head>
 <body >
@@ -139,7 +165,7 @@ container {
      
       <div id="porcentaje_contenedor"><div id="barra"></div>  <div id="porcentaje"></div></div>
       <div id="terminado" style="display: none;">
-        <button onclick=" document.getElementById('precargador').style.display = 'none';document.getElementById('fin_precarga').style.display = 'inherit';"> iniciar </button>
+        <button onclick=" document.getElementById('precargador').style.display = 'none';document.getElementById('fin_precarga').style.display = 'inherit';document.getElementById('section_mascaras').style.display = 'inherit';"> iniciar </button>
       </div>
   </div>
   
@@ -162,63 +188,111 @@ container {
       <div id="orejas" class="dress_up_part"></div>
       <div id="adorno" class="dress_up_part"></div>
       <div id="mascara" class="dress_up_part"></div>
-      <div style=" position: absolute;bottom: 10px;right: 10px;font-family: monospace;font-size: 14px;"> v 0.3 </div>
+      <div style=" position: absolute;bottom: 10px;right: 10px;font-family: monospace;font-size: 14px;"> v 0.4</div>
     </container>
     <div>
 
-     <!-- mascara -->
       <div>
+        <button onclick="section_change( 'mascaras')" > mascaras </button>
+        <button onclick="section_change( 'pantalones')" > pantalones </button>
+        <button onclick="section_change( 'vestidos')">  vestidos </button>
+        <button onclick="section_change( 'brazo')">  brazo </button>
+        <button onclick="section_change( 'cola')">  cola </button>
+        <button onclick="section_change( 'adorno')">  adorno </button>
+        <button onclick="section_change( 'orejas')">  orejas </button>
+        <button onclick="section_change( 'capa')">  capa </button>
+      </div>
+
+
+
+     <!-- mascara -->
+  <!--     <div>
         <button onclick="mascara_active= false; cambiar( 'mascara','none')"> sin mascara</button>
         <button onclick="mascara_active= true; cambiar( 'mascara','mascara_1')" > mascara 1</button>
         <button onclick="mascara_active= true; cambiar( 'mascara','mascara_2')"> mascara 2</button>
         <button onclick="mascara_active= true; cambiar( 'mascara','mascara_3')"> mascara 2 con brillo</button>
-      </div>
+      </div> -->
        <!-- cola -->
-      <div>
+<!--       <div>
         <button onclick="cambiar( 'cola','none')"> sin cola</button>
         <button onclick="cambiar( 'cola','cola')"> cola </button>
-      </div>
+      </div> -->
        <!-- pantalones -->
-       <div>
+    <!--    <div>
         <button onclick="cambiar( 'pantalones','none')"> shorts </button>
         <button onclick="cambiar( 'pantalones','pantalones')"> pantalones </button>
         <button onclick="cambiar( 'pantalones','pantalones_2')"> pantalones 2 </button>
-      </div>
+      </div> -->
        <!-- vestido -->
-       <div>
+    <!--    <div>
         <button onclick="cambiar( 'vestido','none')"> sin vestido </button>
         <button onclick="cambiar( 'vestido','vestido')">  vestido </button>
         <button onclick="cambiar( 'vestido','vestido_2')">  vestido  2</button>
-      </div>
+      </div> -->
        <!-- brazo -->
-       <div>
+   <!--     <div>
         <button onclick="cambiar( 'brazo','none')"> sin brazo </button>
         <button onclick="cambiar( 'brazo','brazo')">  brazo </button>
         <button onclick="cambiar( 'brazo','brazo_2')">  brazo 2 </button>
-      </div>
+      </div> -->
        <!-- orejas -->
-       <div>
+   <!--     <div>
         <button onclick=" orejas_active= false; cambiar( 'orejas','none')"> sin orejas </button>
         <button onclick=" orejas_active= true; cambiar( 'orejas','orejas')">  orejas </button>
-      </div>
+      </div> -->
        <!-- adorno -->
-       <div>
+       <!-- <div>
         <button onclick="cambiar( 'adorno','none')"> sin adorno </button>
         <button onclick="cambiar( 'adorno','adorno')">  adorno </button>
-      </div>
+      </div> -->
 
 
 
-            <!-- brazo -->
-            <div>
+            <!-- capa -->
+            <!-- <div>
               <button onclick="quitar_capa( 'none')"> sin capa </button>
               <button onclick="poner_capa( )"> capa  roja </button>
             
+            </div> -->
+            <div id="section_mascaras" class="UI_section">
+              <img src="img/UI_none.png"  onclick="cambiar( 'mascara','none')" >
+              <img src="img/UI_mascara.png" onclick="cambiar( 'mascara','mascara_1')"  >
+              <img src="img/UI_mascara_1.png" onclick="cambiar( 'mascara','mascara_2')" >
+              <img src="img/UI_mascara_2.png" onclick="cambiar( 'mascara','mascara_3')"  >
             </div>
-
-
-
-     
+            <div>
+              <div id="section_pantalones" class="UI_section">
+                <img src="img/UI_none.png"  onclick="cambiar( 'pantalones','none')" >
+                <img src="img/UI_pantalones.png" onclick="cambiar( 'pantalones','pantalones')"  >
+                <img src="img/UI_pantalones_2.png" onclick="cambiar( 'pantalones','pantalones_2')"  >
+              </div>
+            <div  id="section_vestidos" class="UI_section">
+              <img src="img/UI_none.png"  onclick="cambiar( 'vestido','none')" >
+              <img src="img/UI_vestido.png" onclick="cambiar( 'vestido','vestido')" >
+              <img src="img/UI_vestido_2.png" onclick="cambiar( 'vestido','vestido_2')"  >
+            </div>
+            <div id="section_brazo" class="UI_section">
+              <img src="img/UI_none.png"  onclick="cambiar( 'brazo','none')">
+              <img src="img/UI_brazo.png" onclick="cambiar( 'brazo','brazo_2')"  >
+              <img src="img/UI_brazo_2.png" onclick="cambiar( 'brazo','brazo')"  >
+            </div>
+            <div id="section_cola" class="UI_section">
+              <img src="img/UI_none.png"  onclick="cambiar( 'cola','none')" >
+              <img src="img/UI_cola.png" onclick="cambiar( 'cola','cola')"  >
+            </div>
+            <div id="section_adorno" class="UI_section">
+              <img src="img/UI_none.png"  onclick="cambiar( 'adorno','none')" >
+              <img src="img/UI_adorno.png" onclick="cambiar( 'adorno','adorno')"  >
+            </div>
+    <div id="section_orejas" class="UI_section">
+      <img src="img/UI_none.png" onclick=" orejas_active= false; cambiar( 'orejas','none')">
+      <img src="img/UI_orejas.png" onclick=" orejas_active= true; cambiar( 'orejas','orejas')" >
+    </div>
+    <div id="section_capa" class="UI_section">
+      <img src="img/UI_none.png" onclick="quitar_capa( 'none')" >
+      <img src="img/UI_capa_red.png" onclick="poner_capa( )" >
+    </div>
+           
     </div>
    
 
@@ -227,14 +301,20 @@ container {
 </div>
   <script>
      var imagenes_a_cargar = [
+     
+     
      "base.png", 
      "brazo_der.png", 
      "cola.png", 
+     "UI_cola.png",
      "brazo.png", 
-     "brazo_2.png", 
+     "UI_brazo.png",
+     "brazo_2.png",
+     "UI_brazo_2.png", 
      "pantalones.png", 
      "pantalones_2.png",
      "capucha_red.png",
+     "UI_capa_red.png",
      "capa_back_red_1.png",
      "capa_back_red_2.png",
      "capa_back_red_3.png",
@@ -246,17 +326,35 @@ container {
      "brazo.png",
      "brazo_2.png",
      "orejas.png",
+     "UI_orejas.png",
+     "orejas_red.png",
      "mascara_1.png",
      "mascara_1_hood.png",
      "mascara_2.png",
      "mascara_2_hood.png", 
      "mascara_3.png", 
      "mascara_3_hood.png", 
-     "adorno.png"
+     "adorno.png",
+     "UI_adorno.png"
   ];
 
 
+ 
+  function  section_change( item ){  
+    document.getElementById("section_mascaras").style.display= "none";
+    document.getElementById("section_pantalones").style.display= "none";
+    document.getElementById("section_vestidos").style.display= "none";
+    document.getElementById("section_brazo").style.display= "none";
+    document.getElementById("section_cola").style.display= "none";
+    document.getElementById("section_adorno").style.display= "none";
+    document.getElementById("section_orejas").style.display= "none";
+    document.getElementById("section_capa").style.display= "none";
 
+
+    document.getElementById("section_"+ item ).style.display= "inherit";
+    console.log("section_"+ item );
+
+  }
   precarga( imagenes_a_cargar );
 
 
