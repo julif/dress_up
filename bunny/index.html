@@ -99,11 +99,28 @@
     width: 45%;
     position: relative;
     }
+
+
+    
+    .UI_section{
+      display: none;
+
+    }
+    .UI_section img{
+      height: 100px;
+
+    }
+.buttons_container{
+  background-color: black;
+    margin-bottom: 10px;
+    padding: 6px;
+}
+
     @media (max-width: 990px){  
       container{width: 65%;}  
 
       .UI_section img{
-      height: 50px;
+      height: 60px;
 
     }
       
@@ -145,14 +162,6 @@ container {
 
 
 
-    .UI_section{
-      display: none;
-
-    }
-    .UI_section img{
-      height: 100px;
-
-    }
     </style>
   </head>
 <body >
@@ -192,7 +201,7 @@ container {
     </container>
     <div>
 
-      <div>
+      <div class="buttons_container">
         <button onclick="section_change( 'mascaras')" > mascaras </button>
         <button onclick="section_change( 'pantalones')" > pantalones </button>
         <button onclick="section_change( 'vestidos')">  vestidos </button>
@@ -254,6 +263,9 @@ container {
               <button onclick="poner_capa( )"> capa  roja </button>
             
             </div> -->
+            <div>
+
+           
             <div id="section_mascaras" class="UI_section">
               <img src="img/UI_none.png"  onclick="cambiar( 'mascara','none')" >
               <img src="img/UI_mascara.png" onclick="cambiar( 'mascara','mascara_1')"  >
@@ -293,6 +305,13 @@ container {
       <img src="img/UI_capa_red.png" onclick="poner_capa( )" >
     </div>
            
+
+
+
+  </div>
+
+
+  
     </div>
    
 
