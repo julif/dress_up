@@ -1,0 +1,159 @@
+body{
+  margin: 0px auto;
+  font-family: "proxima-nova",sans-serif;
+  background-color: #222032;
+}
+
+
+ #secciones{ padding: 10px; }
+ .UI_section img{ cursor: pointer;}
+
+
+
+ #preloader {
+margin-left: 15000px;
+position: fixed;
+color: white;
+}
+
+
+ #preloader img{
+   height: 250px;
+   width: auto;
+ }
+
+
+
+
+ #precargador {
+background-color: #0b0a10;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+height: 100%;
+/* width: 100vw; */
+position: absolute;
+width: 100%;
+overflow: hidden;
+}
+#precargador h1{
+color: white;
+}
+#precargador button{    margin-top: 25px;}
+#porcentaje_contenedor {
+background-color: black;
+color: white;
+height: 20px;
+display: flex;
+position: relative;
+}
+#porcentaje_contenedor #barra {
+background-color: white;
+display: block;
+width: 0%;
+height: 100%;
+}
+#porcentaje_contenedor #porcentaje {
+color: #f7f7f7;
+top: 2px;
+position: absolute;
+width: 100%;
+height: 100%;
+text-align: center;
+font-family: "proxima-nova",sans-serif;
+mix-blend-mode: difference;
+}
+
+
+
+
+
+
+
+
+
+ #principal{
+   display: flex;
+width: 100%;
+height: 100vh;
+ }
+ img{
+   /* background-color: red; */
+   /* position: absolute; */
+ }
+container{
+ display: block;
+ /* background-color: red; */
+ background-color: #677589;
+height: 100%;
+/* width: 900px; */
+width: 45%;
+position: relative;
+}
+.segunda_parte{
+width: 55%;
+}
+
+
+.UI_section{
+ display: none;
+
+}
+.UI_section img{
+ height: 100px;
+ margin: 5px;
+
+}
+.buttons_container{
+background-color: black;
+
+padding: 6px;
+}
+
+@media (max-width: 990px){  
+ container{width: 65%;}  
+
+ .UI_section img{
+ height: 50px;
+
+}
+ 
+ 
+  }
+@media screen and (orientation:portrait) {
+ #principal {
+display: block!important;
+width: 100%;
+height: 100vh;
+}
+.segunda_parte{
+width: 100%;
+}
+container {
+/* width: 65%; */
+width: 100%;
+height: 65vh;
+}
+
+}
+.dress_up_part{
+ display: block;
+ /* background-color: #677589; */
+height: 100%;
+width: 100%;
+background-image: -moz-element();
+/* background-image: url(img/base.png); */
+background-position: center;
+background-size: cover;
+position: absolute;
+}
+button{
+ padding: 5px;
+ margin: 2px;
+ cursor: pointer;
+}
+
+
+
+

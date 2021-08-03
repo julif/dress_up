@@ -1,0 +1,3 @@
+- crear imagen y guardarlo en img
+- agregar al array: "imagenes_a_cargar"  en script.js
+- agregar manualmente el boton a la seccion de UI (esto tengo que automatizarlo.)
